@@ -1,9 +1,10 @@
 from email import message
 from pyexpat.errors import messages
 from django.shortcuts import redirect, render
-from matplotlib.pyplot import title
 from . forms import *
 from django.contrib import messages
+from django.views import generic
+
 # Create your views here.
 def home(request):
     return render(request, 'dashboard/home.html')
@@ -26,7 +27,10 @@ def delete_note(request, pk=None):
     Notes.objects.get(id=pk).delete()
     return redirect('notes')
     
-    
+  
+class NotesDetailView(generic.DetailView):
+    model = Notes
+
     
 def homework(request):
     return render(request, 'dashboard/homework.html')
