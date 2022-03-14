@@ -1,6 +1,7 @@
 from email import message
 from pyexpat.errors import messages
 from django.shortcuts import redirect, render
+from matplotlib.style import context
 from . forms import *
 from django.contrib import messages
 from django.views import generic
@@ -33,4 +34,12 @@ class NotesDetailView(generic.DetailView):
 
     
 def homework(request):
-    return render(request, 'dashboard/homework.html')
+    homework = Homework.objects.filter(user=request.user)
+    
+    if len(homework) == 0:
+        homework_done = True
+    else:
+        homework_done = False
+    
+    context = {'homeworks':homework, 'homeworks_done':homework_done}
+    return render(request, 'dashboard/homework.html', context)
