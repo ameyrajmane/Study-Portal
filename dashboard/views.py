@@ -34,6 +34,20 @@ class NotesDetailView(generic.DetailView):
 
     
 def homework(request):
+    if request.method == 'POST':
+        form = HomeworkForm(request.POST)
+        if form.is_valid:
+            try:
+                finished = request.POST['is_finished']
+                if finished == 'on':
+                    finished = True
+                else:
+                    finished = False
+            except:
+                finished = False
+    
+    
+    form = HomeworkForm()
     homework = Homework.objects.filter(user=request.user)
     
     if len(homework) == 0:
@@ -41,5 +55,5 @@ def homework(request):
     else:
         homework_done = False
     
-    context = {'homeworks':homework, 'homeworks_done':homework_done}
+    context = {'homeworks':homework, 'homeworks_done':homework_done, 'form':form}
     return render(request, 'dashboard/homework.html', context)
