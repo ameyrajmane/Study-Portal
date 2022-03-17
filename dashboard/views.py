@@ -11,6 +11,12 @@ from youtubesearchpython import VideosSearch
 def home(request):
     return render(request, 'dashboard/home.html')
 
+
+
+
+# Notes Section
+
+
 def notes(request):
     if request.method == "POST":
         form = NotesForm(request.POST)
@@ -36,6 +42,9 @@ class NotesDetailView(generic.DetailView):
     
     
     
+# Homework Section
+
+
     
 def homework(request):
     if request.method == 'POST':
@@ -89,6 +98,10 @@ def delete_homework(request,pk=None):
     return redirect('homework')
 
 
+
+
+# Youtube Section
+
 def youtube(request):
     if request.method == 'POST':
         form = DashboardForm(request.POST)
@@ -121,3 +134,55 @@ def youtube(request):
        form = DashboardForm()
     context = {'form':form}
     return render(request, 'dashboard/youtube.html', context)
+
+
+
+
+# Todo Section
+
+
+def todo(request):
+    if request.method == 'POST':
+        form = TodoForm(request.POST)
+        if form.is_valid():
+            try:
+                finished = request.POST['is_finished']
+                if finished == 'on':
+                    finished = True
+                else:
+                    finished = False
+            except:
+                finished = False
+            todos = Todo(
+                user = request.user,
+                title = request.POST['title'],
+                is_finished = finished
+            )
+            todos.save()
+            messages.success(request,f"Todo added from {request.user.username}")
+    else:
+       form = TodoForm()
+    todo = Todo.objects.filter(user=request.user)
+    if len(todo) == 0:
+        todos_done = True
+    else:
+        todos_done = False
+    context = {
+        'form':form,
+        'todos':todo,
+        'todos_done':todos_done
+    }
+    return render(request, 'dashboard/todo.html',context)
+
+def update_todo(request,pk=None):
+    todo = Todo.objects.get(id=pk)
+    if todo.is_finished == True:
+        todo.is_finished = False
+    else:
+        todo.is_finished = True
+    todo.save()
+    return redirect('todo')
+
+def delete_todo(request,pk=None):
+    Todo.objects.get(id=pk).delete()
+    return redirect('todo')
