@@ -286,3 +286,18 @@ def wiki(request):
        form = DashboardForm()
        context = {'form':form}
     return render(request, 'dashboard/wiki.html', context)
+
+
+# Conversion Section
+
+def conversion(request):
+    if request.method == 'POST':
+        form = ConversionForm(request.POST)
+        
+    else:
+       form = ConversionForm()
+       context = {
+        'form':form,
+        'input':False
+       }
+    return render(request, 'dashboard/conversion.html', context)
