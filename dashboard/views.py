@@ -38,7 +38,7 @@ def delete_note(request, pk=None):
     
   
 class NotesDetailView(generic.DetailView):
-    model = Notes
+    model = Notes()
 
     
     
