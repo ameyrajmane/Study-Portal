@@ -5,7 +5,7 @@ from django import forms
 from matplotlib import widgets
 from numpy import number
 from .models import *;
-
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 
 
@@ -71,3 +71,10 @@ class ConversionMassForm(forms.Form):
     measure2 = forms.CharField(
         label='', widget=forms.Select(choices=CHOICES)
     ) 
+    
+    
+    
+class UserRegistrationForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password1', 'password2']
