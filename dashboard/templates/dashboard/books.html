@@ -1,7 +1,12 @@
 {% extends 'dashboard/base.html' %} 
 {% load static %} 
 {% block content %}
-
+<style>
+    .main{
+        min-height: 74vh;
+    }
+</style>
+<div class="main">
 <section class='text-center container'>
     <h2>Search books and browse your favorite</h2>
     <p>just enter the search query to obtain the results</p><b></b>
@@ -55,5 +60,5 @@
     {% endfor %}
     <br>
 </section>
-
+</div>
 {% endblock content %}

@@ -2,6 +2,12 @@
 {% load static %} 
 {% load crispy_forms_tags %}
 {% block content %}
+<style>
+    .main{
+        min-height: 74vh;
+    }
+</style>
+<div class="main">
 <div class="container text-center">
     <form method="POST">
         {% csrf_token %}
@@ -40,5 +46,5 @@
         {% endif %}
     </form>
 </div>
-
+</div>
 {% endblock content %}

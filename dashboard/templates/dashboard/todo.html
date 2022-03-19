@@ -2,7 +2,12 @@
 {% load static %}
 {% block content %}
 {% load crispy_forms_tags %}
-
+<style>
+    .main{
+        min-height: 74vh;
+    }
+</style>
+<div class="main">
 <div class="container">
      {% if not todos_done %}
     <table class="table table-striped table-bordered table-hover table-dark">
@@ -57,5 +62,5 @@
         </div>
     </form>
 </div>
-
+</div>
 {% endblock content %}

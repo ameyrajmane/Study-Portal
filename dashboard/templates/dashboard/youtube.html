@@ -1,7 +1,12 @@
 {% extends 'dashboard/base.html' %} 
 {% load static %} 
 {% block content %}
-
+<style>
+    .main{
+        min-height: 74vh;
+    }
+</style>
+<div class="main">
 
 <section class='text-center container'>
     <h2>Search Videos in Youtube</h2>
@@ -44,4 +49,5 @@
     <br>
 </section>
 
+</div>
 {% endblock content %}
