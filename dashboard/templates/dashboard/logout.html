@@ -1,12 +1,18 @@
 {% extends "dashboard/base.html" %}
 {% load static %}
 {% block content %}
-
+<style>
+  .main{
+      min-height: 74vh;
+  }
+</style>
+<div class="main">
 <div class="border-top pt-3 text-center">
   <h2>You are logged Out</h2>
 
   <small class="text-muted"
     ><a class="btn btn-danger" href="{% url 'login' %}">Log In Again</a>
   </small>
+</div>
 </div>
 {% endblock content %}
