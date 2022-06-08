@@ -2,6 +2,12 @@
 {% load static %}
 {% load crispy_forms_tags%}
 {% block content %}
+<style>
+    .main{
+        min-height: 74vh;
+    }
+</style>
+<div class="main">
 <section class="text-center">
     
     <div class="container">
@@ -96,5 +102,5 @@
         <a href="{% url 'homework' %}" class="btn btn-danger">Homeworks</a>
     </div>
 </section>
-
+</div>
 {% endblock content %}
