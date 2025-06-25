@@ -1,4 +1,57 @@
-# Study_Portal
+# 🎓 Study_Portal
+
+A comprehensive web-based **Study Management System** designed for students to organize and enhance their learning. Built using **Python**, **Django**, and **MySQL**, this portal integrates multiple tools including notes, homework tracker, YouTube search, to-do list, dictionary, Wikipedia, unit converter, and more — all in one place.
+
+---
+
+## 🚀 Features
+
+### 📚 Notes
+- Create, update, and delete personal study notes
+- Organize notes by subject or topic
+
+### 📝 Homework Tracker
+- Add and manage homework tasks with subject and deadline
+- Mark homework as complete/incomplete
+- Email notification (optional)
+
+### 🔎 YouTube Search
+- Search and display study-related YouTube videos using the YouTube API
+
+### ✅ To-Do List
+- Add, edit, and delete tasks
+- Track completed and pending study goals
+
+### 📖 Books
+- Browse a curated list of educational books
+- Add books to "Reading List"
+
+### 📖 Dictionary
+- Search word definitions, pronunciation, and usage via Free Dictionary API
+
+### 🌐 Wikipedia
+- Fetch brief summaries of academic topics using the Wikipedia API
+
+### 🔄 Unit Converter
+- Convert between various units like length, weight, volume, and temperature
+
+---
+
+## 🧰 Tech Stack
+
+| Layer        | Technology         |
+| ------------| ------------------ |
+| Backend      | Python, Django     |
+| Database     | MySQL              |
+| Frontend     | HTML5, CSS3, Bootstrap |
+| APIs Used    | YouTube Data API, Dictionary API, Wikipedia API |
+
+
+---
+
+## 🏗️ Project Structure
+
+
 ![Screenshot (183)](https://user-images.githubusercontent.com/72036529/159009618-762d8a61-2962-404d-ab4c-1059c6b3071c.png)
 
 
